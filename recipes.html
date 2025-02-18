@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Recipes - Recipo</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <script src="js/forms.js" defer></script>
+    <script src="js/events.js" defer></script>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-list">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="recipes.html">Recipes</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+    </nav>
+
+    <main class="recipes-page">
+        <header class="recipes-header">
+            <h1>Explore Recipe Origins</h1>
+            <p>Discover the fascinating journeys of dishes from around the world</p>
+        </header>
+
+        <section class="recipe-grid">
+            <!-- European Cuisine -->
+            <article class="recipe-card">
+                <img src="https://cdn.shopify.com/s/files/1/0274/9503/9079/files/20220211142754-margherita-9920_5a73220e-4a1a-4d33-b38f-26e98e3cd986.jpg?v=1723650067" alt="Neapolitan Pizza">
+                <div class="recipe-card-content">
+                    <h3>Neapolitan Pizza</h3>
+                    <p>From humble Italian streets to worldwide phenomenon</p>
+                    <a href="recipes/pizza.html">Explore Origin →</a>
+                </div>
+            </article>
+
+            <article class="recipe-card">
+                <img src="https://tastesbetterfromscratch.com/wp-content/uploads/2020/04/Paella-7.jpg" alt="Paella">
+                <div class="recipe-card-content">
+                    <h3>Paella</h3>
+                    <p>Spain's iconic saffron-infused rice dish</p>
+                    <a href="recipes/paella.html">Explore Origin →</a>
+                </div>
+            </article>
+
+            <!-- Asian Cuisine -->
+            <article class="recipe-card">
+                <img src="https://int.japanesetaste.com/cdn/shop/articles/how-to-make-makizushi-sushi-rolls-japanese-taste.jpg" alt="Sushi">
+                <div class="recipe-card-content">
+                    <h3>Sushi</h3>
+                    <p>The evolution of Japan's most famous dish</p>
+                    <a href="recipes/sushi.html">Explore Origin →</a>
+                </div>
+            </article>
+
+            <article class="recipe-card">
+                <img src="https://www.recipetineats.com/wp-content/uploads/2019/04/Beef-Pho_6.jpg" alt="Pho">
+                <div class="recipe-card-content">
+                    <h3>Pho</h3>
+                    <p>Vietnam's soul-warming noodle soup</p>
+                    <a href="recipes/pho.html">Explore Origin →</a>
+                </div>
+            </article>
+
+            <!-- American Cuisine -->
+            <article class="recipe-card">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg" alt="Tacos">
+                <div class="recipe-card-content">
+                    <h3>Tacos</h3>
+                    <p>Mexico's versatile street food masterpiece</p>
+                    <a href="recipes/tacos.html">Explore Origin →</a>
+                </div>
+            </article>
+
+            <!-- Coming Soon Card -->
+            <article class="recipe-card coming-soon">
+                <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/113777-0b21d44.jpg" alt="Curry">
+                <div class="recipe-card-content">
+                    <h3>Curry</h3>
+                    <p>A journey through South Asian spices</p>
+                    <a href="recipes/curry.html">Explore Origin →</a>
+                </div>
+            </article>
+        </section>
+
+        <!-- Add Forms Section -->
+        <section class="forms-section">
+            <div class="forms-container-wrapper">
+                <!-- Recipe Form -->
+                <div class="form-container">
+                    <h2>Submit Your Recipe</h2>
+                    <form id="recipeForm" novalidate>
+                        <div class="form-group">
+                            <label for="recipeName">Recipe Name*</label>
+                            <input type="text" id="recipeName" name="recipeName" required
+                                pattern="^[A-Za-z\s]{3,50}$"
+                                title="Recipe name should be between 3-50 characters, letters only">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cuisine">Cuisine/Origin*</label>
+                            <select id="cuisine" name="cuisine" required>
+                                <option value="">Select cuisine...</option>
+                                <option value="asian">Asian</option>
+                                <option value="european">European</option>
+                                <option value="american">American</option>
+                                <option value="middle-eastern">Middle Eastern</option>
+                            </select>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ingredients">Ingredients*</label>
+                            <textarea id="ingredients" name="ingredients" rows="4" required
+                                minlength="50" maxlength="500"></textarea>
+                            <span class="error-message"></span>
+                            <small>Minimum 50 characters, list each ingredient on a new line</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="cookingTime">Cooking Time (minutes)*</label>
+                            <input type="number" id="cookingTime" name="cookingTime" required
+                                min="5" max="480">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Difficulty Level*</label>
+                            <div class="radio-group">
+                                <input type="radio" id="easy" name="difficulty" value="easy" required>
+                                <label for="easy">Easy</label>
+                                <input type="radio" id="medium" name="difficulty" value="medium">
+                                <label for="medium">Medium</label>
+                                <input type="radio" id="hard" name="difficulty" value="hard">
+                                <label for="hard">Hard</label>
+                            </div>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <button type="submit">Submit Recipe</button>
+                    </form>
+                </div>
+
+                <!-- Review Form -->
+                <div class="form-container">
+                    <h2>Write a Review</h2>
+                    <form id="reviewForm" novalidate>
+                        <div class="form-group">
+                            <label for="username">Username*</label>
+                            <input type="text" id="username" name="username" required
+                                pattern="^[A-Za-z0-9_]{3,20}$"
+                                title="Username should be 3-20 characters, letters, numbers and underscore only">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rating">Rating*</label>
+                            <input type="range" id="rating" name="rating" min="1" max="5" step="1" required>
+                            <output for="rating">3</output>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="review">Your Review*</label>
+                            <textarea id="review" name="review" rows="4" required
+                                minlength="20" maxlength="500"></textarea>
+                            <span class="error-message"></span>
+                            <small>Minimum 20 characters</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="recommend" name="recommend">
+                                I would recommend this recipe
+                            </label>
+                        </div>
+
+                        <button type="submit">Submit Review</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Tables Section -->
+            <div class="tables-section">
+                <div id="recipesTableContainer"></div>
+                <div id="reviewsTableContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

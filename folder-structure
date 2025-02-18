@@ -1,0 +1,19 @@
+main-folder/
+├── index.html
+├── about.html
+├── recipes.html
+├── recipes/
+│   ├── pizza.html
+│   ├── sushi.html
+│   ├── curry.html
+│   └── paella.html
+├── images/
+│   ├── hero-banner.jpg
+│   ├── pizza.jpg
+│   ├── sushi.jpg
+│   ├── curry.jpg
+│   ├── paella.jpg
+│   └── map-placeholder.png
+└── styles/
+    ├── main.css
+    └── responsive.css 
