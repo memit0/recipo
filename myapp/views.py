@@ -165,8 +165,8 @@ def toggle_favorite(request, recipe_id):
     
     if not created:
         favorite.delete()
-        return JsonResponse({'status': 'removed'})
-    return JsonResponse({'status': 'added'})
+    
+    return HttpResponseRedirect(reverse('myapp:recipes'))
 
 @login_required
 def favorites(request):
