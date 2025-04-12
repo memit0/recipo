@@ -1,0 +1,30 @@
+{% load static %}
+<script>
+    const recipeData = [
+        {
+            name: "Sushi",
+            image: "https://int.japanesetaste.com/cdn/shop/articles/how-to-make-makizushi-sushi-rolls-japanese-taste.jpg",
+            url: "{% url 'myapp:sushi' %}"
+        },
+        {
+            name: "Pho",
+            image: "https://www.recipetineats.com/tachyon/2019/04/Beef-Pho_6.jpg",
+            url: "{% url 'myapp:pho' %}"
+        },
+        {
+            name: "Neapolitan Pizza",
+            image: "https://cdn.shopify.com/s/files/1/0274/9503/9079/files/20220211142754-margherita-9920_5a73220e-4a1a-4d33-b38f-26e98e3cd986.jpg",
+            url: "{% url 'myapp:pizza' %}"
+        },
+        {
+            name: "Paella",
+            image: "https://tastesbetterfromscratch.com/wp-content/uploads/2020/04/Paella-7.jpg",
+            url: "{% url 'myapp:paella' %}"
+        },
+        {
+            name: "Tacos",
+            image: "https://upload.wikimedia.org/wikipedia/commons/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg",
+            url: "{% url 'myapp:tacos' %}"
+        }
+    ];
+</script> 

@@ -12,11 +12,17 @@ urlpatterns = [
     
     # Recipe-specific cuisine pages
     path("pizza/", views.pizza, name="pizza"),
+    path("pizza.html", views.pizza, name="pizza_html"),
     path("sushi/", views.sushi, name="sushi"),
+    path("sushi.html", views.sushi, name="sushi_html"),
     path("curry/", views.curry, name="curry"),
+    path("curry.html", views.curry, name="curry_html"),
     path("paella/", views.paella, name="paella"),
+    path("paella.html", views.paella, name="paella_html"),
     path("pho/", views.pho, name="pho"),
+    path("pho.html", views.pho, name="pho_html"),
     path("tacos/", views.tacos, name="tacos"),
+    path("tacos.html", views.tacos, name="tacos_html"),
     
     # Recipe and review management
     path("recipes/", views.recipes, name="recipes"),  # List all recipes

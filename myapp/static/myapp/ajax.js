@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 </div>
                             `;
                             recipeElement.addEventListener('click', () => {
-                                window.location.href = `/recipes/${recipe.id}/`;
+                                window.location.href = recipe.url;
                             });
                             searchResults.appendChild(recipeElement);
                         });
