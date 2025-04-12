@@ -3,6 +3,11 @@
 {% block content %}
   {% if user.is_authenticated %}
     <h2>Welcome, {{ user.username }}</h2>
+    {% if user.is_staff %}
+      <p class="admin-status">You are logged in as an administrator.</p>
+    {% else %}
+      <p class="admin-status">You are logged in as a regular user.</p>
+    {% endif %}
     <p>You are already logged in. <a href="{% url 'myapp:logout' %}">Logout</a></p>
   {% else %}
     <h2>Login</h2>
