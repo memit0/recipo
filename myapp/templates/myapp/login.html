@@ -2,13 +2,19 @@
 <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
 {% block content %}
   {% if user.is_authenticated %}
-    <h2>Welcome, {{ user.username }}</h2>
-    {% if user.is_staff %}
-      <p class="admin-status">You are logged in as an administrator.</p>
-    {% else %}
-      <p class="admin-status">You are logged in as a regular user.</p>
-    {% endif %}
-    <p>You are already logged in. <a href="{% url 'myapp:logout' %}">Logout</a></p>
+    <div class="welcome-container">
+      <div class="welcome-header">
+        <h2 class="welcome-title">Welcome, <span class="username">{{ user.username }}</span></h2>
+        {% if user.is_staff %}
+          <p class="admin-status">You are logged in as an administrator.</p>
+        {% else %}
+          <p class="admin-status">You are logged in as a regular user.</p>
+        {% endif %}
+      </div>
+      <div class="welcome-actions">
+        <p>You are already logged in. <a href="{% url 'myapp:logout' %}" class="logout-link">Logout</a></p>
+      </div>
+    </div>
   {% else %}
     <h2>Login</h2>
     <div class="login-container">
