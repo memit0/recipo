@@ -1,0 +1,48 @@
+{% extends 'myapp/base.html' %}
+{% load static %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script src="{% static 'myapp/search.js' %}"></script>
+<script src="{% static 'myapp/menu.js' %}"></script>
+<div class="favorites-page">
+    <header class="favorites-header">
+        <h1>Your Favorite Recipes</h1>
+        <p>All the recipes you've saved for later</p>
+    </header>
+
+    <section class="recipe-grid">
+        {% if favorite_recipes %}
+            {% for recipe in favorite_recipes %}
+            <article class="recipe-card">
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+                <div class="recipe-card-content">
+                    <h3>{{ recipe.name }}</h3>
+                    <p><strong>Submitted by:</strong> {{ recipe.user.username }}</p>
+                    <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                    <p>{{ recipe.description }}</p>
+                    
+                    <!-- Favorites button -->
+                    <div class="favorite-action">
+                        <form method="post" action="{% url 'myapp:toggle_favorite' recipe.id %}" class="favorite-form">
+                            {% csrf_token %}
+                            <button type="submit" class="favorite-btn favorited">
+                                <span class="material-icons">favorite</span>
+                                Remove from Favorites
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </article>
+            {% endfor %}
+        {% else %}
+            <div class="no-favorites">
+                <p>You haven't saved any recipes to your favorites yet.</p>
+                <p>Browse our collection of delicious recipes and save your favorites for easy access later!</p>
+                <a href="{% url 'myapp:recipes' %}" class="btn">Browse Recipes</a>
+            </div>
+        {% endif %}
+    </section>
+</div>
+{% endblock %} 

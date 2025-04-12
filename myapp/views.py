@@ -6,7 +6,8 @@ from django.contrib.auth.decorators import login_required
 from .forms import RegisterForm, RecipeForm, ReviewForm
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from .models import Recipe, Review
+from .models import Recipe, Review, FavoriteRecipe
+from django.http import JsonResponse
 
 
 def index(request):
@@ -156,3 +157,20 @@ def delete_review(request, review_id):
         review.delete()
         return HttpResponseRedirect(reverse('myapp:recipes'))
     return render(request, 'myapp/delete_confirmation.html', {'object': review, 'type': 'review'})
+
+@login_required
+def toggle_favorite(request, recipe_id):
+    recipe = get_object_or_404(Recipe, id=recipe_id)
+    favorite, created = FavoriteRecipe.objects.get_or_create(user=request.user, recipe=recipe)
+    
+    if not created:
+        favorite.delete()
+        return JsonResponse({'status': 'removed'})
+    return JsonResponse({'status': 'added'})
+
+@login_required
+def favorites(request):
+    favorite_recipes = Recipe.objects.filter(favoriterecipe__user=request.user)
+    return render(request, "myapp/favorites.html", {
+        'favorite_recipes': favorite_recipes
+    })

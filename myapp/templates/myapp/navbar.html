@@ -7,6 +7,9 @@
     <ul class="nav-list">
         <li><a href="{% url 'myapp:index' %}">Home</a></li>
         <li><a href="{% url 'myapp:recipes' %}">Recipes</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'myapp:favorites' %}">Favorites</a></li>
+        {% endif %}
         <li><a href="{% url 'myapp:about' %}">About</a></li>
     </ul>
     <div class="account-logo" style="position: absolute; top: 10px; right: 10px; width: 50px; height: 50px;">

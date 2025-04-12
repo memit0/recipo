@@ -917,3 +917,87 @@ button[type="submit"]:hover {
     width: 100%;
 }
 
+/* Favorites Button Styles */
+.favorite-action {
+    margin-top: 1rem;
+}
+
+.favorite-form {
+    display: inline-block;
+}
+
+.favorite-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #666;
+}
+
+.favorite-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.favorite-btn.favorited {
+    background-color: #ffebee;
+    color: #e53935;
+}
+
+.favorite-btn .material-icons {
+    font-size: 1.2rem;
+}
+
+/* Favorites Page Styles */
+.favorites-page {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 2rem;
+}
+
+.favorites-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.favorites-header h1 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.no-favorites {
+    text-align: center;
+    padding: 3rem;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    margin: 2rem auto;
+    max-width: 600px;
+}
+
+.no-favorites p {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-bottom: 1.5rem;
+}
+
+.no-favorites .btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: var(--border-radius-sm);
+    font-weight: 500;
+    transition: background-color 0.3s;
+}
+
+.no-favorites .btn:hover {
+    background-color: #357abd;
+}
+

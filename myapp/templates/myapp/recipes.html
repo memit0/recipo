@@ -47,6 +47,19 @@
                     </div>
                     {% endif %}
 
+                    <!-- Favorites button -->
+                    {% if user.is_authenticated %}
+                    <div class="favorite-action">
+                        <form method="post" action="{% url 'myapp:toggle_favorite' recipe.id %}" class="favorite-form">
+                            {% csrf_token %}
+                            <button type="submit" class="favorite-btn {% if recipe in user.favoriterecipe_set.all %}favorited{% endif %}">
+                                <span class="material-icons">favorite</span>
+                                {% if recipe in user.favoriterecipe_set.all %}Remove from Favorites{% else %}Add to Favorites{% endif %}
+                            </button>
+                        </form>
+                    </div>
+                    {% endif %}
+
                     <!-- Reviews section -->
                     <div class="recipe-reviews">
                         <h4>Reviews</h4>

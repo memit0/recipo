@@ -14,6 +14,7 @@ urlpatterns = [
     path("tacos/", views.tacos, name="tacos"),
     path("about/", views.about, name="about"),
     path("recipes/", views.recipes, name="recipes"),
+    path("favorites/", views.favorites, name="favorites"),
     path("staff-only/", views.staff_only_view, name="staff_only"),
     path("register/", views.register, name="register"),
     path("login/", auth_views.LoginView.as_view(template_name='myapp/login.html'), name="login"),
@@ -25,4 +26,5 @@ urlpatterns = [
     path('reviews/update/<int:review_id>/', views.update_review, name='update_review'),
     path('recipes/delete/<int:recipe_id>/', views.delete_recipe, name='delete_recipe'),
     path('reviews/delete/<int:review_id>/', views.delete_review, name='delete_review'),
+    path('recipes/toggle-favorite/<int:recipe_id>/', views.toggle_favorite, name='toggle_favorite'),
 ]
