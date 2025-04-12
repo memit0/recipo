@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pho Origins - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/paella.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+    
+    <main class="recipe-detail">
+        <article>
+            <header>
+                <h1>Pho</h1>
+                <p>A fusion of French and Vietnamese culinary traditions</p>
+            </header>
+    
+            <img src="https://www.recipetineats.com/tachyon/2019/04/Beef-Pho_6.jpg" alt="Pho" class="recipe-hero-image">
+    
+            <section class="recipe-history">
+                <h2>Historical Journey</h2>
+                <p>Pho emerged in Vietnam during the late 19th century, during the French colonial period. The soup is believed to be influenced by both French beef stewing techniques and Chinese rice noodle soups. It originated in the Nam Dinh province before becoming popular in Hanoi and eventually spreading throughout Vietnam and the world.</p>
+                    
+                <div class="map-container">
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </section>
+    
+            <section class="ingredient-origins">
+                <h2>Ingredient Origins</h2>
+                <ul>
+                    <li>Rice Noodles - Traditional Vietnamese staple</li>
+                    <li>Beef - Influenced by French colonial presence</li>
+                    <li>Star Anise - Native to southern China and Vietnam</li>
+                    <li>Fish Sauce - Ancient Southeast Asian condiment</li>
+                    <li>Bean Sprouts - Indigenous to East and Southeast Asia</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+    
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

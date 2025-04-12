@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tacos Origins - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/paella.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="recipe-detail">
+        <article>
+            <header>
+                <h1>Tacos</h1>
+                <p>From ancient Mexican tradition to global street food</p>
+            </header>
+
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/001_Tacos_de_carnitas%2C_carne_asada_y_al_pastor.jpg" alt="Tacos" class="recipe-hero-image">
+
+            <section class="recipe-history">
+                <h2>Historical Journey</h2>
+                <p>Tacos have been a staple of Mexican cuisine since pre-Hispanic times, when indigenous peoples would wrap small fish in corn tortillas. The word "taco" itself originated in the 18th century Mexican silver mines, where it referred to small charges used to excavate ore. Modern tacos evolved in Mexico's working-class communities and gained international popularity through Mexican-American cuisine.</p>
+                
+                <div class="map-container">
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </section>
+
+            <section class="ingredient-origins">
+                <h2>Ingredient Origins</h2>
+                <ul>
+                    <li>Corn Tortillas - Ancient Mesoamerican staple food</li>
+                    <li>Al Pastor - Lebanese-Mexican fusion from the 1930s</li>
+                    <li>Cilantro - Originally from Mediterranean region</li>
+                    <li>Lime - Native to Southeast Asia, brought by Spanish</li>
+                    <li>Chiles - Indigenous to the Americas</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

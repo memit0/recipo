@@ -1,0 +1,11 @@
+**/__pycache__
+**/*.pyc
+.pytest_cache/
+storage/*
+staticfiles/*
+!storage/.gitkeep
+.venv/
+db.sqlite3
+project-export.zip
+assignment.md
+.env

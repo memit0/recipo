@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paella Origins - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/paella.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="recipe-detail">
+        <article>
+            <header>
+                <h1>Paella</h1>
+                <p>From humble Valencian roots to Spanish national dish</p>
+            </header>
+
+            <img src="https://tastesbetterfromscratch.com/wp-content/uploads/2020/04/Paella-7.jpg" alt="Paella" class="recipe-hero-image">
+
+            <section class="recipe-history">
+                <h2>Historical Journey</h2>
+                <p>Paella originated in the mid-19th century near Valencia, Spain, where farm laborers cooked rice in large flat pans over open fires in the fields. The dish was made with local ingredients: rice from the coastal wetlands, vegetables from nearby gardens, rabbits, and snails. The iconic yellow color came later with the introduction of saffron to the recipe.</p>
+                
+                <div class="map-container">
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </section>
+
+            <section class="ingredient-origins">
+                <h2>Ingredient Origins</h2>
+                <ul>
+                    <li>Rice - Introduced by the Moors in the 8th century</li>
+                    <li>Saffron - Cultivated in La Mancha region since Arab rule</li>
+                    <li>Olive Oil - Ancient Mediterranean staple</li>
+                    <li>Seafood - From the Mediterranean coast</li>
+                    <li>Paprika - New World spice, integrated after Columbus</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

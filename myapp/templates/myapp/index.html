@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipo - Discover Recipe Origins</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="{% static 'myapp/search.js' %}"></script>
+    <script src="{% static 'myapp/menu.js' %}"></script>
+</head>
+<body>
+
+    {% include 'myapp/navbar.html' %}
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Recipo</h1>
+            <p>Trace the historical journey of dishes across cultures</p>
+        </div>
+    </header>
+
+    <main>
+        <section class="featured-recipes">
+            <h2 style="text-align: center;">Featured Recipes</h2>
+            <div class="recipe-grid">
+                <article class="recipe-card">
+                    <img src="{% static 'myapp/images/pizza.jpg' %}" alt="Neapolitan Pizza">
+                    <div class="recipe-card-content">
+                        <h3>Neapolitan Pizza</h3>
+                        <p>From humble Italian streets to worldwide phenomenon</p>
+                        <a href="{% url 'myapp:pizza' %}">Explore Origin →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="{% static 'myapp/images/sushi.jpg' %}" alt="Sushi">
+                    <div class="recipe-card-content">
+                        <h3>Sushi</h3>
+                        <p>The evolution of Japan's most famous dish</p>
+                        <a href="{% url 'myapp:sushi' %}">Explore Origin →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="{% static 'myapp/images/curry.jpg' %}" alt="Curry">
+                    <div class="recipe-card-content">
+                        <h3>Curry</h3>
+                        <p>A journey through South Asian spices</p>
+                        <a href="{% url 'myapp:curry' %}">Explore Origin →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="{% static 'myapp/images/paella.jpg' %}" alt="Paella">
+                    <div class="recipe-card-content">
+                        <h3>Paella</h3>
+                        <p>Spain's iconic saffron-infused rice dish</p>
+                        <a href="{% url 'myapp:paella' %}">Explore Origin →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="{% static 'myapp/images/pho.jpg' %}" alt="Pho">
+                    <div class="recipe-card-content">
+                        <h3>Pho</h3>
+                        <p>Vietnam's soul-warming noodle soup</p>
+                        <a href="{% url 'myapp:pho' %}">Explore Origin →</a>
+                    </div>
+                </article>
+
+                <article class="recipe-card">
+                    <img src="{% static 'myapp/images/tacos.jpg' %}" alt="Tacos">
+                    <div class="recipe-card-content">
+                        <h3>Tacos</h3>
+                        <p>Mexico's versatile street food masterpiece</p>
+                        <a href="{% url 'myapp:tacos' %}">Explore Origin →</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

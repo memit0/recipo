@@ -1,0 +1,50 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curry Origins - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/paella.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="recipe-detail">
+        <article>
+            <header>
+                <h1>Curry</h1>
+                <p>A journey through spices and cultural exchange</p>
+            </header>
+
+            <img src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/113777-0b21d44.jpg" alt="Curry" class="recipe-hero-image">
+
+            <section class="recipe-history">
+                <h2>Historical Journey</h2>
+                <p>The story of curry begins in the Indian subcontinent over 4,000 years ago. The word 'curry' itself comes from the Tamil word 'kari', meaning sauce. Through trade routes and colonial expansion, curry spread across Asia and eventually the world, with each culture adapting it to local tastes and ingredients.</p>
+                
+                <div class="map-container">
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </section>
+
+            <section class="ingredient-origins">
+                <h2>Ingredient Origins</h2>
+                <ul>
+                    <li>Turmeric - Native to Southeast Asia</li>
+                    <li>Cumin - Originally from the Mediterranean</li>
+                    <li>Coriander - Native to Southern Europe and North Africa</li>
+                    <li>Cardamom - Indigenous to Indian subcontinent</li>
+                    <li>Chili Peppers - Originally from the Americas</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

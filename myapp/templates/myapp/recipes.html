@@ -1,0 +1,167 @@
+{% load static %}   
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Recipes - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/paella.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="{% static 'myapp/search.js' %}"></script>
+    <script src="{% static 'myapp/menu.js' %}"></script>
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="recipes-page">
+        <header class="recipes-header">
+            <h1>Explore Recipe Origins</h1>
+            <p>Discover the fascinating journeys of dishes from around the world</p>
+        </header>
+
+        <section class="recipe-grid">
+            {% for recipe in recipes %}
+            <article class="recipe-card">
+                <img src="{{ recipe.image.url }}" alt="{{ recipe.name }}">
+                <div class="recipe-card-content">
+                    <h3>{{ recipe.name }}</h3>
+                    <p><strong>Submitted by:</strong> {{ recipe.user.username }}</p>
+                    <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+                    <p>{{ recipe.description }}</p>
+                    {% if user.is_authenticated and user == recipe.user %}
+                    <a href="{% url 'myapp:edit_recipe' recipe.id %}">Edit</a>
+                    <a href="{% url 'myapp:delete_recipe' recipe.id %}" onclick="return confirm('Are you sure you want to delete this recipe?');">Delete</a>
+                    {% endif %}
+                </div>
+            </article>
+            {% endfor %}
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="reviews-section">
+            <h2>Reviews</h2>
+            <ul>
+                {% for review in reviews %}
+                <li>
+                    <strong>{{ review.user.username }}</strong> rated <strong>{{ review.recipe.name }}</strong>: {{ review.rating }} stars
+                    <p>{{ review.comment }}</p>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Add Forms Section -->
+        <section class="forms-section">
+            <div class="forms-container-wrapper">
+                <!-- Recipe Form -->
+                <div class="form-container">
+                    <h2>Submit Your Recipe</h2>
+                    <form id="recipeForm" method="post" action="{% url 'myapp:create_recipe' %}" enctype="multipart/form-data" novalidate>
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="recipeName">Recipe Name*</label>
+                            <input type="text" id="recipeName" name="name" required
+                                pattern="^[A-Za-z\s]{3,100}$"
+                                title="Recipe name should be between 3-100 characters, letters only">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description*</label>
+                            <textarea id="description" name="description" rows="4" required
+                                minlength="10" maxlength="500"></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="ingredients">Ingredients*</label>
+                            <textarea id="ingredients" name="ingredients" rows="4" required
+                                minlength="10" maxlength="1000"></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="instructions">Instructions*</label>
+                            <textarea id="instructions" name="instructions" rows="4" required
+                                minlength="10" maxlength="2000"></textarea>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="image">Image</label>
+                            <input type="file" id="image" name="image" accept="image/*">
+                            <span class="error-message"></span>
+                        </div>
+
+                        <button type="submit">Submit Recipe</button>
+                    </form>
+                </div>
+
+                <!-- Review Form -->
+                <div class="form-container">
+                    <h2>Write a Review</h2>
+                    {% if user.is_authenticated %}
+                    <form id="reviewForm" novalidate>
+                        <div class="form-group">
+                            <label for="username">Username*</label>
+                            <input type="text" id="username" name="username" value="{{ user.username }}" readonly required>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rating">Rating*</label>
+                            <input type="range" id="rating" name="rating" min="1" max="5" step="1" required>
+                            <output for="rating">3</output>
+                            <span class="error-message"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="review">Your Review*</label>
+                            <textarea id="review" name="review" rows="4" required
+                                minlength="20" maxlength="500"></textarea>
+                            <span class="error-message"></span>
+                            <small>Minimum 20 characters</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="recommend" name="recommend">
+                                I would recommend this recipe
+                            </label>
+                        </div>
+
+                        <button type="submit">Submit Review</button>
+                    </form>
+                    {% else %}
+                    <p>Please <a href="{% url 'register' %}">register</a> or <a href="{% url 'login' %}">log in</a> to write a review.</p>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- Tables Section -->
+            <div class="tables-section">
+                <div id="recipesTableContainer"></div>
+                <div id="reviewsTableContainer"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ratingInput = document.getElementById('rating');
+            const ratingOutput = document.querySelector('output[for="rating"]');
+
+            // Update the output value when the slider changes
+            ratingInput.addEventListener('input', function () {
+                ratingOutput.textContent = ratingInput.value;
+            });
+        });
+    </script>
+</body>
+</html>

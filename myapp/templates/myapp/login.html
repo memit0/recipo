@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+{% block content %}
+  {% if user.is_authenticated %}
+    <h2>Welcome, {{ user.username }}</h2>
+    <p>You are already logged in. <a href="{% url 'myapp:logout' %}">Logout</a></p>
+  {% else %}
+    <h2>Login</h2>
+    <div class="login-container">
+      <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Login</button>
+      </form>
+      <p>Don't have an account? <a href="{% url 'myapp:register' %}">Create one</a></p>
+    </div>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sushi Origins - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/responsive.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="recipe-detail">
+        <article>
+            <header>
+                <h1>Sushi</h1>
+                <p>From preserved fish to global culinary art</p>
+            </header>
+
+            <img src="https://int.japanesetaste.com/cdn/shop/articles/how-to-make-makizushi-sushi-rolls-japanese-taste.jpg?v=1707914944&width=5760" alt="Sushi" class="recipe-hero-image">
+
+            <section class="recipe-history">
+                <h2>Historical Journey</h2>
+                <p>Sushi's origins can be traced back to Southeast Asia, where fish was fermented in rice to preserve it. This method spread to Japan around the 8th century. The modern form of sushi was developed in Edo (now Tokyo) during the 18th century as a fast-food dish.</p>
+                
+                <div class="map-container">
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </section>
+
+            <section class="ingredient-origins">
+                <h2>Ingredient Origins</h2>
+                <ul>
+                    <li>Rice - Cultivated in Japan since the Yayoi period</li>
+                    <li>Nori (Seaweed) - Harvested from Japanese coastal waters</li>
+                    <li>Wasabi - Native to Japanese mountain streams</li>
+                    <li>Soy Sauce - Originated in China, evolved in Japan</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

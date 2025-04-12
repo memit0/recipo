@@ -1,0 +1,28 @@
+/* Mobile Styles */
+@media screen and (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+  
+    .recipe-grid {
+      grid-template-columns: 1fr;
+      padding: var(--spacing-md);
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-sm);
+    }
+  
+    .navbar {
+      padding: var(--spacing-sm);
+    }
+  }
+  
+  /* Tablet Styles */
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .recipe-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  } 

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Recipo - Our Story</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/paella.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="about-content">
+        <section class="about-section">
+            <h1>About Recipo</h1>
+            <p class="tagline">Tracing the Cultural Journey of Global Cuisine</p>
+            
+            <div class="mission">
+                <h2>Our Mission</h2>
+                <p>Recipo is dedicated to exploring the fascinating origins and evolution of beloved dishes from around the world. We believe that every recipe tells a story - a story of cultural exchange, historical events, and human innovation.</p>
+            </div>
+
+            <div class="what-we-do">
+                <h2>What We Do</h2>
+                <ul>
+                    <li>Track the historical journey of dishes across different cultures and continents</li>
+                    <li>Explore the origins of key ingredients in popular recipes</li>
+                    <li>Document how recipes have evolved and adapted across different regions</li>
+                    <li>Map the global influence and spread of culinary traditions</li>
+                </ul>
+            </div>
+
+            <div class="future-plans">
+                <h2>Future Plans</h2>
+                <p>We're working on integrating interactive maps to visualize the journey of each dish, along with expanding our recipe database to cover more cuisines and cultural intersections.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>

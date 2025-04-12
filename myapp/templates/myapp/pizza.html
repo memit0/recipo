@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neapolitan Pizza Origins - Recipo</title>
+    <link rel="stylesheet" href="{% static 'myapp/style.css' %}">
+    <link rel="stylesheet" href="{% static 'myapp/responsive.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% include "myapp/navbar.html" %}
+
+    <main class="recipe-detail">
+        <article>
+            <header>
+                <h1>Neapolitan Pizza</h1>
+                <p>The authentic Italian masterpiece that conquered the world</p>
+            </header>
+
+            <img src="https://cdn.shopify.com/s/files/1/0274/9503/9079/files/20220211142754-margherita-9920_5a73220e-4a1a-4d33-b38f-26e98e3cd986.jpg?v=1723650067" alt="Neapolitan Pizza" class="recipe-hero-image">
+
+            <section class="recipe-history">
+                <h2>Historical Journey</h2>
+                <p>The story of pizza begins in Naples, Italy, during the 18th century...</p>
+                
+                <div class="map-container">
+                    <p>Interactive Map Coming Soon</p>
+                </div>
+            </section>
+
+            <section class="ingredient-origins">
+                <h2>Ingredient Origins</h2>
+                <ul>
+                    <li>Tomatoes - Originally from South America</li>
+                    <li>Mozzarella - Southern Italy</li>
+                    <li>Basil - Native to India</li>
+                    <li>Olive Oil - Mediterranean Basin</li>
+                </ul>
+            </section>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Recipo. All rights reserved.</p>
+    </footer>
+</body>
+</html>
