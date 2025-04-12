@@ -1132,3 +1132,90 @@ button[type="submit"]:hover {
     margin-top: 1rem;
 }
 
+/* Recipe Creation Form Styles */
+.recipe-form-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.recipe-form-container h1 {
+    text-align: center;
+    color: var(--secondary-color);
+    margin-bottom: 2rem;
+}
+
+.recipe-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.recipe-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.recipe-form label {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.recipe-form input[type="text"],
+.recipe-form input[type="file"],
+.recipe-form textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+}
+
+.recipe-form input[type="text"]:focus,
+.recipe-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.1);
+}
+
+.recipe-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.recipe-form button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: var(--border-radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.recipe-form button[type="submit"]:hover {
+    background-color: #357abd;
+}
+
+.recipe-form .helptext {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 0.25rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .recipe-form-container {
+        margin: 1rem;
+        padding: 1.5rem;
+    }
+}
+

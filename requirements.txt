@@ -1,9 +1,7 @@
 Django==5.1.7
 dj-database-url==2.3.0 
 pillow
-
-# Uncomment for MySQL Database Support
-#mysqlclient==2.2.7
+mysqlclient==2.2.7
 
 # Uncomment for PostgreSQL Database Support
 #psycopg==3.2.6 

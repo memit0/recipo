@@ -18,6 +18,9 @@ A modern web application for managing and sharing recipes, built with Django. Th
 - Python 3.8 or higher
 - pip (Python package manager)
 - Virtual environment (recommended)
+- Docker installed on your system (for Docker deployment)
+- MySQL server running locally (or accessible)
+- Port 8000 available on your system
 
 ## Installation
 
@@ -53,6 +56,68 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
+## Docker Deployment
+
+For production deployment using Docker:
+
+1. First, create a Docker volume for persistent storage:
+```bash
+docker volume create myapp-storage
+```
+
+2. Build the Docker image:
+```bash
+docker build -t myapp .
+```
+
+3. Run the container with the following command:
+```bash
+docker run -ti \
+  -e DATABASE_URL="mysql://myappdbuser:myappdbpass@host.docker.internal:3306/myappdb" \
+  -v myapp-storage:/app/storage \
+  -p 8000:8000 \
+  myapp
+```
+
+### Docker Environment Variables
+
+- `DATABASE_URL`: MySQL connection string in the format:
+  `mysql://username:password@host:port/database`
+  - username: Database username
+  - password: Database password
+  - host: Database host (use `host.docker.internal` for local MySQL)
+  - port: Database port (default: 3306)
+  - database: Database name
+
+### Docker Database Setup
+
+Before running the Docker container, ensure you have:
+
+1. Created a MySQL database named `myappdb`
+2. Created a user with appropriate permissions:
+```sql
+CREATE DATABASE myappdb;
+CREATE USER 'myappdbuser'@'%' IDENTIFIED BY 'myappdbpass';
+GRANT ALL PRIVILEGES ON myappdb.* TO 'myappdbuser'@'%';
+FLUSH PRIVILEGES;
+```
+
+## Running the Application
+
+### Local Development
+1. Start the development server:
+```bash
+python manage.py runserver
+```
+
+2. Access the application:
+   - Main site: http://127.0.0.1:8000/
+   - Admin panel: http://127.0.0.1:8000/admin/
+
+### Docker Deployment
+Once the container is running, you can access the web application at:
+http://localhost:8000
+
 ## Configuration
 
 1. Environment Variables:
@@ -71,17 +136,6 @@ python manage.py createsuperuser
 3. Media Files:
    - Create a `media` directory in your project root
    - Configure your web server to serve media files from this directory
-
-## Running the Application
-
-1. Start the development server:
-```bash
-python manage.py runserver
-```
-
-2. Access the application:
-   - Main site: http://127.0.0.1:8000/
-   - Admin panel: http://127.0.0.1:8000/admin/
 
 ## Project Structure
 

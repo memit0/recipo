@@ -15,7 +15,6 @@ COPY . /app/
 ENV DJANGO_SUPERUSER_USERNAME "admin"
 ENV DJANGO_SUPERUSER_PASSWORD "admin"
 ENV DJANGO_SUPERUSER_EMAIL "admin@localhost"
-ENV DATABASE_URL "sqlite:////app/storage/db.sqlite3"
  
 EXPOSE 8000
 
